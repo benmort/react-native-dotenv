@@ -23,7 +23,9 @@ module.exports = function (data) {
                                           ? configFile + '.development'
                                           : configFile + '.production';
                   var config = Object.assign(config, dotEnv.config({ path: sysPath.join(configDir, platformPath), silent: true }));
-
+                  console.log('~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~')
+                  console.log(config)
+                  console.log('~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~')
                   path.node.specifiers.forEach(function(specifier, idx){
                     if (specifier.type === "ImportDefaultSpecifier") {
                       throw path.get('specifiers')[idx].buildCodeFrameError('Import dotenv as default is not supported.')
